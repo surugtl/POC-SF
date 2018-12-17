@@ -1,0 +1,52 @@
+<aura:component controller="BoatReviews">
+    
+	<aura:attribute name="boat" type="Boat__c" access="public"/>
+    <aura:attribute name="boatReviews" type="BoatReview__c[]" access="private"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="change" value="{!v.boat}" action="{!c.doInit}"/>
+    //refresh method
+    <aura:method name="refresh" action="{!c.doInit}" access="public"
+                 description="refresh to reflect latest data">
+    </aura:method>
+    <aura:if isTrue="{!v.boatReviews.length==0}">
+    	<lightning:layoutItem class="slds-align_absolute-center" >   
+              <ui:outputText value="No Reviews Available" />
+        </lightning:layoutItem>
+    </aura:if>
+    
+    <div class="slds-feed">
+	<ul class="slds-feed__list">
+      <ui:scrollerWrapper class="scrollerSize">
+       <aura:iteration items="{!v.boatReviews}" var="BoatReview">
+          
+		<li class="slds-feed__item slds-scrollable_y">    
+    		<article class="slds-post">
+            
+             <div class="slds-post__content slds-text-longform">
+                 <p class="slds-text-title_caps">{!BoatReview.Name}</p>
+                 <p class="slds-text-body_small"><lightning:formattedRichText value="{!BoatReview.Comment__c}"/> </p>
+			</div>
+            <div class="slds-media__body">
+                <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                  <p><a data-userid="{!BoatReview.CreatedBy.Id}" href="javascript:void(0);" title="{!BoatReview.CreatedBy.Name}" onclick="{!c.onUserInfoClick}">
+                     {!BoatReview.CreatedBy.Name}
+                     </a> 
+                      — {!BoatReview.CreatedBy.CompanyName}
+                  </p>
+                </div> 
+            </div>   
+    		</article>
+          </li>
+          
+	      <ul>
+		    <li >
+			  <c:FiveStarRating aura:id="FiveStarRating" value="{!BoatReview.Rating__c}"/>
+		   </li>
+		  </ul>
+                 
+
+        </aura:iteration>
+       </ui:scrollerWrapper>
+    </ul>
+  </div>
+</aura:component>

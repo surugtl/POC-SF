@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SearchActivity$ClickRank</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$KbChannel</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$ClickedRecordName</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$Period</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$QueryLanguage</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$AvgNumResults</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$CountQueries</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$CountUsers</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$QueryDate</field>
+    </columns>
+    <columns>
+        <field>SearchActivity$SearchTerm</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Knowledge Search Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Search__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SearchActivity$QueryDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

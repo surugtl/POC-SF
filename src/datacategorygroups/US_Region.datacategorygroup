@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>East Coast</label>
+            <name>east_coast</name>
+        </dataCategory>
+        <dataCategory>
+            <label>West Coast</label>
+            <name>west_coast</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Central</label>
+            <name>central</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>US Region</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>
